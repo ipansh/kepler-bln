@@ -4,7 +4,6 @@ import telegram_notifier
 import gspread_wrapper
 
 telegram_token = os.environ.get("TELEGRAM_TOKEN")
-google_service_account = dict(os.environ.get("GOOGLE_SERVICE_ACCOUNT"))
 
 if __name__  == '__main__': 
     master_df = gspread_wrapper.get_master_spreadsheet()
