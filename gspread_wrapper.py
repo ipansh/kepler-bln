@@ -10,6 +10,8 @@ g_client_email = os.environ.get("G_CLIENT_EMAIL")
 g_client_id = os.environ.get("G_CLIENT_ID")
 g_client_x509_cert_url = os.environ.get("G_CLIENT_X509_CERT_URL")
 
+print('Credentials loaded!')
+
 def get_master_spreadsheet():
     gspread_scopes = [
         'https://www.googleapis.com/auth/spreadsheets',
