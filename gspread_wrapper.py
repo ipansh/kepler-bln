@@ -5,7 +5,7 @@ import pandas as pd
 import os
 import json
 
-credentials = os.environ.get['GOOGLE_APPLICATION_CREDENTIALS']
+credentials = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
 print('Got credentials from env...')
 credentials_json = json.loads(credentials)
 print('Converted to json...')
