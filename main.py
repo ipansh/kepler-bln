@@ -15,7 +15,7 @@ db_access_key = os.environ.get("POSTGRE")
 
 if __name__  == '__main__': 
     cnx = create_engine(db_access_key)
-    sql = '''select * from public.wg_listings;'''
+    sql = '''select * from public.listings;'''
     query = text(sql)
     current_df = pd.read_sql_query(query, cnx)
     print('Obtained master table!')
@@ -34,5 +34,5 @@ if __name__  == '__main__':
             pass
     print('Message should be sent.')
     new_df['notified'] = 'yes'
-    new_df.to_sql('wg_listings', cnx, schema = 'public', index = False, chunksize=100, if_exists='replace', method = 'multi')
+    new_df.to_sql('listings', cnx, schema = 'public', index = False, chunksize=100, if_exists='replace', method = 'multi')
     print('All tasks completed!')
