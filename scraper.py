@@ -92,8 +92,8 @@ def clean_and_filter_gesucht_data(final_df):
     final_df['zipcode'] = [location.split(' ')[0] for location in final_df['location']]
     filtered_df = final_df[(final_df['rent'] < 1500) &
                        (final_df['available_until'] == 'unlimited') &
-                       (final_df['tausch'] == False)]
-                       #(final_df['district'].isin(['Pankow','Charlottenburg','Mitte','Berg','Wedding']))]
+                       (final_df['tausch'] == False)
+                       (final_df['district'].isin(['Pankow','Charlottenburg','Mitte','Berg','Wedding']))]
     filtered_df = filtered_df[['url','size','rent','rooms','deposit','street','district','zipcode','available_from']]
     return filtered_df
 
