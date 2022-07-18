@@ -95,3 +95,5 @@ def clean_and_filter_gesucht_data(final_df):
                        #(final_df['district'].isin(['Pankow','Charlottenburg','Mitte','Berg','Wedding']))]
     filtered_df = filtered_df[['url','size','rent','rooms','deposit','street','district','zipcode','available_from']]
     return filtered_df
+
+
