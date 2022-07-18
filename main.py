@@ -42,3 +42,4 @@ if __name__  == '__main__':
     new_df['notified'] = 'yes'
     new_df.to_sql('listings', cnx, schema = 'public', index = False, chunksize=100, if_exists='replace', method = 'multi')
     print('All tasks completed!')
+    scraper.scrape_ebay(selenium_driver)

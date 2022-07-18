@@ -2,6 +2,7 @@ from scrapy import Selector
 import requests
 import pandas as pd
 import time
+from selenium import webdriver
 
 def get_wg_gesucht_listings():
     url = 'https://www.wg-gesucht.de/1-zimmer-wohnungen-und-wohnungen-in-Berlin.8.1+2.1.0.html#back_to_ad_9161625'
@@ -24,7 +25,7 @@ def scrape_wg_gesucht_data(input_list):
             sel = Selector(text = html)
             apartment_dict = {}
             print('listing...', end = ' ')
-            apartment_dict['url'] = listing
+            apartment_dict['url'] = listing_html
             #1. listing size
             print('size...', end = ' ')
             apartment_dict['size'] = sel.xpath('//*[contains(@class,"headline headline-key-facts")]/text()').extract()[0].strip() 
@@ -40,7 +41,7 @@ def scrape_wg_gesucht_data(input_list):
             #4. floor
             #print('floor...', end = ' ')
             #raw_floor = sel.xpath('//*[contains(@class,"col-xs-6 col-sm-4 text-center print_text_left")]/text()').extract()[2]
-            #apartment_dict['floor'] = ''.join(raw_floor.split())
+            #apartment_dict['floor'] = ''.join(raw_floo r.split())
             #5. deposit
             print('deposit...', end = ' ')
             if sel.xpath('//*[contains(@id,"kaution")]/@value') != []:
@@ -97,3 +98,15 @@ def clean_and_filter_gesucht_data(final_df):
     return filtered_df
 
 
+def scrape_ebay(selenium_driver):
+    """Function for scraping data Wellceee's search page, implemented through Selenium."""
+    selenium_driver.get("https://www.ebay-kleinanzeigen.de/s-wohnung-mieten/berlin/c203l3331")
+    selenium_response = selenium_driver.page_source
+
+    #new_selector = Selector(text=selenium_response)
+
+    #items = new_selector.xpath('//*[@class="house-item clearfix"]/a/@href').extract()
+
+    #items = list(set(['https://www.wellcee.com'+listing_id for listing_id in items]))
+
+    return print(selenium_response)
