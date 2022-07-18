@@ -99,11 +99,14 @@ def clean_and_filter_gesucht_data(final_df):
 
 
 def scrape_ebay(selenium_driver):
-    """Function for scraping data Wellceee's search page, implemented through Selenium."""
     selenium_driver.get("https://www.ebay-kleinanzeigen.de/s-wohnung-mieten/berlin/c203l3331")
     selenium_response = selenium_driver.page_source
 
-    #new_selector = Selector(text=selenium_response)
+    new_selector = Selector(text=selenium_response)
+
+    listings = new_selector.xpath('//*[contains(@class,"text-module-begin")]/a/@href').extract()
+
+    print(listings)
 
     #items = new_selector.xpath('//*[@class="house-item clearfix"]/a/@href').extract()
 
