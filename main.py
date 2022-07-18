@@ -35,7 +35,7 @@ if __name__  == '__main__':
     new_df = new_df.drop_duplicates(subset = ['url'])
     for url, notified in zip(new_df['url'],new_df['notified']):
         if notified == 'no':
-            telegram_notifier.send_message('https://www.wg-gesucht.de'+url, telegram_token)
+            telegram_notifier.send_message(url, telegram_token)
         else:
             pass
     print('Message should be sent.')
