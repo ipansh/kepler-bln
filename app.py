@@ -8,7 +8,7 @@
 # import time
 # import telegram_notifier
 # import os
-#from flask import Flask, request
+from flask import Flask, request
 
 # telegram_token = os.environ.get("TELEGRAM_TOKEN")
 # db_access_key = os.environ.get("POSTGRE")
@@ -19,14 +19,14 @@
 # chrome_options.add_argument("--no-sandbox")
 # selenium_driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
-# app = Flask(__name__)
+app = Flask(__name__)
 
-# @app.route("/")
-# def home():
-#     return 'Done!'
+@app.route("/")
+def home():
+     return 'Done!'
 
 if __name__  == '__main__': 
-    #app.run(debug=True)
+    app.run(debug=True)
     print('Run successful!')
     # scraper.scrape_ebay(selenium_driver)
 
