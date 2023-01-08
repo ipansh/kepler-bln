@@ -9,6 +9,7 @@ import time
 import telegram_notifier
 from sqlalchemy import create_engine, text
 import os
+from flask import Flask, request
 
 telegram_token = os.environ.get("TELEGRAM_TOKEN")
 #db_access_key = os.environ.get("POSTGRE")
@@ -19,8 +20,14 @@ chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--no-sandbox")
 selenium_driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return 'Done!'
+
 if __name__  == '__main__': 
-    print("Selenium is up and runing on the server.")
+    app.run(debug=True)
 
     # #cnx = create_engine(db_access_key)
     # #sql = '''select * from public.listings;'''

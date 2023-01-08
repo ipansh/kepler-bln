@@ -1,6 +1,7 @@
 async-generator==1.10
 attrs==21.4.0
 Automat==20.2.0
+Flask==2.1.2
 certifi==2021.10.8
 cffi==1.15.0
 charset-normalizer==2.0.11
