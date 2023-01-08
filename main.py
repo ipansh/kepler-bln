@@ -1,24 +1,23 @@
-from selenium import webdriver
-import json
-import scrapy
-import scraper
-from scrapy import Selector
-import requests
-import pandas as pd
-import time
-import telegram_notifier
-from sqlalchemy import create_engine, text
-import os
+#from selenium import webdriver
+# import json
+# import scrapy
+# import scraper
+# from scrapy import Selector
+# import requests
+# import pandas as pd
+# import time
+# import telegram_notifier
+# import os
 from flask import Flask, request
 
-telegram_token = os.environ.get("TELEGRAM_TOKEN")
-#db_access_key = os.environ.get("POSTGRE")
-chrome_options = webdriver.ChromeOptions()
-chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-chrome_options.add_argument("--headless")
-chrome_options.add_argument("--disable-dev-shm-usage")
-chrome_options.add_argument("--no-sandbox")
-selenium_driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+# telegram_token = os.environ.get("TELEGRAM_TOKEN")
+# #db_access_key = os.environ.get("POSTGRE")
+# chrome_options = webdriver.ChromeOptions()
+# chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+# chrome_options.add_argument("--headless")
+# chrome_options.add_argument("--disable-dev-shm-usage")
+# chrome_options.add_argument("--no-sandbox")
+# selenium_driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
 app = Flask(__name__)
 
@@ -28,6 +27,7 @@ def home():
 
 if __name__  == '__main__': 
     app.run(debug=True)
+    # scraper.scrape_ebay(selenium_driver)
 
     # #cnx = create_engine(db_access_key)
     # #sql = '''select * from public.listings;'''
@@ -51,4 +51,3 @@ if __name__  == '__main__':
     # new_df['notified'] = 'yes'
     # new_df.to_sql('listings', cnx, schema = 'public', index = False, chunksize=100, if_exists='replace', method = 'multi')
     # print('All tasks completed!')
-    # scraper.scrape_ebay(selenium_driver)
