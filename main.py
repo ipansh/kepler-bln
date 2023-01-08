@@ -11,7 +11,7 @@
 from flask import Flask, request
 
 # telegram_token = os.environ.get("TELEGRAM_TOKEN")
-# #db_access_key = os.environ.get("POSTGRE")
+# db_access_key = os.environ.get("POSTGRE")
 # chrome_options = webdriver.ChromeOptions()
 # chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
 # chrome_options.add_argument("--headless")
